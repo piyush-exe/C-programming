@@ -1,0 +1,102 @@
+students = []
+mobile_numbers = set()
+
+
+def register_student():
+
+    name = input("Enter Name: ")
+    age = int(input("Enter Age: "))
+    mobile = input("Enter Mobile Number: ")
+    marks = float(input("Enter Marks: "))
+
+    if name == "":
+        print("Invalid Name")
+
+    elif age < 18 or age > 60:
+        print("Invalid Age")
+
+    elif len(mobile) != 10 or not mobile.isdigit():
+        print("Invalid Mobile Number")
+
+    elif mobile in mobile_numbers:
+        print("Mobile Already Registered")
+
+    elif marks < 0 or marks > 100:
+        print("Invalid Marks")
+
+    else:
+        student = {
+            "name": name,
+            "age": age,
+            "mobile": mobile,
+            "marks": marks
+        }
+
+        students.append(student)
+        mobile_numbers.add(mobile)
+
+        if marks >= 33:
+            result = "Pass"
+        else:
+            result = "Fail"
+
+        print("Registration Successful!")
+        print("Result:", result)
+
+
+def show_students():
+
+    if not students:
+        print("No Student Found")
+
+    else:
+        for student in students:
+            print(student)
+            
+def search_student():
+
+    mobile = input("Enter Mobile Number: ")
+
+    for student in students:
+
+        if student["mobile"] == mobile:
+            print(student)
+            return
+
+    print("Student Not Found")
+def search_student_name():
+    name = input ('Enter name: ')  
+    
+    for student in students :
+        if student["name"] == name:
+            print(student)
+    
+    print("Student Not Found ")
+            
+while True:
+
+    print("\n--- STUDENT MANAGEMENT SYSTEM ---")
+    print("1. Register Student")
+    print("2. Show Students")
+    print("3. Exit")
+    print("4. Search Student")
+    print("5. search_student_name")
+    
+    choice = input("Enter Choice: ")
+
+    if choice == "1":
+        register_student()
+
+    elif choice == "2":
+        show_students()
+
+    elif choice == "3":
+        print("Program Closed")
+    elif choice == "4":
+        search_student()
+    elif choice == "5":  
+        search_student_name
+        break
+
+    else:
+        print("Invalid Choice")
