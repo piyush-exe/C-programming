@@ -64,12 +64,14 @@ def search_student():
             return
 
     print("Student Not Found")
+
 def search_student_name():
     name = input ('Enter name: ')  
     
     for student in students :
         if student["name"] == name:
             print(student)
+            return 
     
     print("Student Not Found ")
             
