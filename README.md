@@ -1,2 +1,2 @@
-# C-programming
+# code. py
 My C programming practice
